@@ -1,0 +1,11 @@
+import React from 'react'
+import Company from '../../assets/Images/companylogo.jpg'
+import { Parallax } from 'react-scroll-parallax'
+
+export default function CompanyLogo() {
+  return (
+    <Parallax y={[-100, 5]}>
+      <img src={Company} alt="Company" />
+    </Parallax>
+  )
+}

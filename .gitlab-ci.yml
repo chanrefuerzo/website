@@ -1,0 +1,57 @@
+stages:
+  # - test
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# test-application:
+#   stage: test
+#   image: node:latest
+#   script:
+#     - npm install --global yarn
+#     - yarn install
+#     - yarn test
+
+build-application:
+  stage: build
+  image: node:latest
+  script:
+    - npm install --global yarn
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - build
+  only:
+    # - develop
+    - master
+
+# deploy_development:
+#   stage: deploy
+#   image: ruby:2.6.3
+#   script:
+#     - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+#     - eval $(ssh-agent -s)
+#     - ssh-add <(echo -e "$SSH_KEY")
+#     - echo "$ENV_PROD" > ".env.staging"
+#     - gem install capistrano
+#     - cap staging deploy
+#   only:
+#     - develop
+
+deploy_production:
+  stage: deploy
+  image: ruby:2.6.3
+  script:
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo -e "$SSH_KEY")
+    # - echo "$ENV_PROD" > ".env"
+    - gem install capistrano
+    - cap production deploy
+  only:
+    - master
