@@ -116,10 +116,10 @@ export default function MainLayout() {
             fontSize: '3.5vw',
           }}
         >
-          Si Chan Chan lamang natatanging G W A P O.
+          Davao City Planning and Development Office
         </h1>
         <h1 style={{ color: 'white', fontSize: '1.5vw' }}>
-          short description.
+          ZONING * RESEACH * MONITOR * LOCATE
         </h1>
       </div>
 

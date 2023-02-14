@@ -10,7 +10,7 @@ export default function Logo() {
       <Row>
         <Col>
           <EaseIn duration={500} delay={300} direction="vertical">
-            <a href="https://www.facebook.com/ExeCreator-Technologies-Corporation-102316894505894/?modal=admin_todo_tour">
+            <a href="https://www.facebook.com/davaocpdo">
               <img
                 src={FacebookIcon}
                 alt="FacebookIcon"
